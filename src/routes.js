@@ -1,8 +1,7 @@
 export default config;
 
 /** @ngInject */
-function config($stateProvider, $urlRouterProvider, $locationProvider, jwtInterceptorProvider, $httpProvider, jwtOptionsProvider) {
-  $locationProvider.html5Mode(true).hashPrefix('!');
+function config($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
@@ -10,15 +9,5 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, jwtInterc
       url: '/',
       component: 'app'
     });
-
-  jwtOptionsProvider.config({
-    whiteListedDomains: ['192.168.103.102', 'localhost']
-  });
-
-  jwtInterceptorProvider.tokenGetter = [function () {
-    return window.localStorage.getItem('token');
-  }];
-
-  $httpProvider.interceptors.push('jwtInterceptor');
 
 }

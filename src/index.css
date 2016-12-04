@@ -1,56 +1,45 @@
-.hs-grid #vertical-container {
-  height: 60vh; /*IMPORTANT*/
-  width: 100%; /*IMPORTANT*/
-}
-
-.hs-grid .repeated-item {
-  /*border-bottom: 1px solid #ddd;*/
-  box-sizing: border-box;
-  height: 59px; /*IMPORTANT*/
-  /*padding-top: 10px;*/
-}
-
-.hs-grid .borderless td, .borderless th {
-  border: none;
-}
-
-.hs-grid .table {
-  margin-bottom: 0px;
-}
-
-.hs-grid .row {
-  height: 100%;
-}
-
-.hs-grid .hs-row {
-  height: 100%;
-}
-
-/*.hs-grid md-content {*/
-/*margin: 16px;*/
-/*}*/
-
-.hs-grid md-virtual-repeat-container {
-  border: solid 1px grey;
-}
-
-/*.hs-grid .md-virtual-repeat-container .md-virtual-repeat-offsetter div {*/
-/*padding-left: 16px;*/
-/*}*/
-
 body {
-  font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.42857143;
-  color: #000 !important;
-  background-color: transparent
+  background: #eee !important;
 }
 
-.bg-grid-banner {
-  border: 1px solid hsla(0, 0%, 100%, .5)
+.wrapper {
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
-.bg-events-header {
-  background-color: #b394ee
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+.form-signin-heading,
+.checkbox {
+  margin-bottom: 30px;
+}
+
+.checkbox {
+  font-weight: normal;
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+
+input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+

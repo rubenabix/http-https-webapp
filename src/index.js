@@ -9,10 +9,7 @@ import 'angular-material';
 import 'jquery';
 import 'bootstrap-loader';
 
-import 'angular-jwt';
-
 import {dashboard} from './app/dashboard.component';
-import HSPubSub from './app/features/pubSub/pubSub'
 import 'angular-ui-router';
 import config from './routes';
 
@@ -24,9 +21,7 @@ angular
   .module(app,
     [
       'ngMaterial',
-      'ui.router',
-      'angular-jwt'
+      'ui.router'
     ])
   .config(config)
-  .service('hsPubSub', HSPubSub)
   .component('app', dashboard);

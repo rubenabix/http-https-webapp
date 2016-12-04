@@ -9,8 +9,7 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   module: {
-    preLoaders: [
-    ],
+    preLoaders: [],
 
     loaders: [
       {
@@ -21,17 +20,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ExtractTextPlugin.extract({
-          fallbackLoader: 'style',
-          loader: 'css?minimize!!postcss'
-        })
+        loaders: [
+          'style',
+          'css',
+          'postcss'
+        ]
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: [
           'ng-annotate',
-          'babel'
+          'babel?presets[]=es2015,plugins[]=transform-runtime'
         ]
       },
       {
@@ -39,10 +39,18 @@ module.exports = {
         loaders: [
           'html'
         ]
-      }
+      },
+      {test: /\.scss$/, loaders: ['style', 'css', 'postcss', 'sass']},
+      {test: /\.(woff2?|ttf|eot|svg)$/, loader: 'url?limit=10000'},
+      {test: /bootstrap\/dist\/js\/umd\//, loader: 'imports?jQuery=jquery'}
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      jQuery: 'jquery',
+      $: 'jquery',
+      jquery: 'jquery'
+    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({

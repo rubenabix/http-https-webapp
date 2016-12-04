@@ -1,9 +1,48 @@
 .container-fluid
-
-  h2
-    | Infratec
-
   .row
-    .col-md-3
+    .col-md-12
 
-    .col-md-9
+      div(ng-show="!dashboardController.isAuthenticated")
+        .wrapper
+          form.form-signin()
+            h2.form-signin-heading Infratec Login --> {{dashboardController.protocol}}
+            input.form-control(type='text', name='username', placeholder='Usuario', required='', autofocus='', ng-model='dashboardController.form.https.user')
+            input.form-control(type='password', name='password', placeholder='Contraseña', required='', ng-model='dashboardController.form.https.password')
+            button.btn.btn-lg.btn-primary.btn-block(ng-click="dashboardController.submit('https', 'GET')") Ingresar GET
+            button.btn.btn-lg.btn-primary.btn-block(ng-click="dashboardController.submit('https', 'POST')") Ingresar POST
+
+        //// Nav tabs
+        //ul.nav.nav-tabs(role='tablist')
+        //  li.active(role='presentation')
+        //    a(href='#http', aria-controls='home', role='tab', data-toggle='tab', ng-click="::dashboardController.cleanForms()") HTTP
+        //  li(role='presentation')
+        //    a(href='#https', aria-controls='profile', role='tab', data-toggle='tab', ng-click="::dashboardController.cleanForms()") HTTPS
+        //// Tab panes
+        //.tab-content
+        //  #http.tab-pane.active(role='tabpanel')
+        //    .wrapper
+        //      form.form-signin()
+        //        h2.form-signin-heading Infratec HTTP Login
+        //        input.form-control(type='text', name='username', placeholder='Usuario', required='', autofocus='', ng-model='dashboardController.form.http.user')
+        //        input.form-control(type='password', name='password', placeholder='Contraseña', required='', ng-model='dashboardController.form.http.password')
+        //        button.btn.btn-lg.btn-primary.btn-block(ng-click="dashboardController.submit('http', 'GET')") Ingresar GET
+        //        button.btn.btn-lg.btn-primary.btn-block(ng-click="dashboardController.submit('http', 'POST')") Ingresar POST
+        //
+        //
+        //  #https.tab-pane(role='tabpanel')
+        //    .wrapper
+        //      form.form-signin()
+        //        h2.form-signin-heading Infratec HTTPS Login
+        //        input.form-control(type='text', name='username', placeholder='Usuario', required='', autofocus='', ng-model='dashboardController.form.https.user')
+        //        input.form-control(type='password', name='password', placeholder='Contraseña', required='', ng-model='dashboardController.form.https.password')
+        //        button.btn.btn-lg.btn-primary.btn-block(ng-click="dashboardController.submit('https', 'GET')") Ingresar GET
+        //        button.btn.btn-lg.btn-primary.btn-block(ng-click="dashboardController.submit('https', 'POST')") Ingresar POST
+
+
+
+      div(ng-show="dashboardController.isAuthenticated")
+        h1 Bienvenido
+        h2 {{dashboardController.name}}
+
+
+
