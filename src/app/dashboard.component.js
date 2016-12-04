@@ -66,7 +66,7 @@ class DashboardController {
         console.log(response);
 
         if (response.data.status === 'ok') {
-          this.name = response.data.name;
+          this.name = response.data.message;
           this.isAuthenticated = true;
         } else {
           this.isAuthenticated = false;
